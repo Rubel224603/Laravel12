@@ -36,8 +36,8 @@ class User extends Authenticatable
         'linkedInUrl',
         'twitterUrl',
         'youtubeUrl',
-        'createdAt',
-        'updatedAt'
+        'created_at',
+        'updated_at'
 
     ];
 

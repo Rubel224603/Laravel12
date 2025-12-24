@@ -51,7 +51,7 @@ class ImportMongoDbUsers extends Command
                 'phone' => $user['phone'] ?? null,
                 'password' => $user['password'] ?? Hash::make('123456'),
                 'photo' => $user['photo'] ?? null,
-                'role' => $user['role'] === 'admin' ? 'admin' : (($user['role'] === 'instructor') ? 'teacher' : 'student'),
+                'roll' => $user['roll'] ?? "student",
                 'status' => $user['status'] ?? "active",
                 'isVerified' => $user['isVerified'] ?? false,
                 'education' => $user['education'] ?? null,
@@ -68,8 +68,8 @@ class ImportMongoDbUsers extends Command
                 'twitterUrl' => $user['twitterUrl'] ?? null,
                 'youtubeUrl' => $user['youtubeUrl'] ?? null,
                 'mongodb_id' => $user['mongodb_id'] ?? null,
-                'created_at' => isset($u['createdAt']['$date']) ? Carbon::parse($u['createdAt']['$date']) : now(),
-                'updated_at' => isset($u['updatedAt']['$date']) ? Carbon::parse($u['updatedAt']['$date']) : now(),
+                'created_at' => isset($user['createdAt']['$date']) ? Carbon::parse($user['createdAt']['$date']) : now(),
+                'updated_at' => isset($user['updatedAt']['$date']) ? Carbon::parse($user['updatedAt']['$date']) : now(),
 
             ]);
         }
